@@ -21,7 +21,7 @@ public class LoggerService extends Service {
 
     private static SharedPreferences pref;
     private static SharedPreferences.Editor editor;
-    private static final String PREF_NAME = "Logger";
+    private static final String PREF_NAME = "LoggerService";
     private static Context context;
     private static int PRIVATE_MODE = 0;
     private static String deviceID;
@@ -56,7 +56,7 @@ public class LoggerService extends Service {
     @Override
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
-        new Logger(context).uploadLogs();
+        new LoggerService(context).uploadLogs();
     }
 
 
@@ -144,7 +144,7 @@ public class LoggerService extends Service {
 
     public static boolean log(String type, String title, String description) {
 
-        String vId = String.valueOf(Logger.getVisitorId());
+        String vId = String.valueOf(LoggerService.getVisitorId());
 
         //JSONArray jLogList;
         // String logEntry[][]={{"VisitorId",vId},{"type",type},{"title",title},{"description",description}};
