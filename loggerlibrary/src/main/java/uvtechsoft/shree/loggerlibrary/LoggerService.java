@@ -50,14 +50,10 @@ public class LoggerService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-    }
-
-
-    @Override
-    public void onStart(Intent intent, int startId) {
-        super.onStart(intent, startId);
         new LoggerService(context).uploadLogs();
     }
+
+
 
 
     @Override
