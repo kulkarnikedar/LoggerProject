@@ -189,7 +189,7 @@ public class LoggerService extends Service {
 
     public Boolean uploadLogs( ){
 
-        int interval = Integer.parseInt(pref.getString("INTERVAL",""));
+        int interval = Integer.parseInt(pref.getString("INTERVAL","1000"));
         mTimer.schedule(timerTask,interval,24*60*60*1000);
 
         return true;
