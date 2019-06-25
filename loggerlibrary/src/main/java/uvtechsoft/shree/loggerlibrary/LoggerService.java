@@ -50,7 +50,7 @@ public class LoggerService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        new LoggerService(context).uploadLogs();
+       uploadLogs();
     }
 
 
