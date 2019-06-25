@@ -37,6 +37,7 @@ public class LoggerService extends Service {
         editor = pref.edit();
         deviceID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
         mTimer = new Timer();
+        uploadLogs();
     }
 
     @Override
@@ -50,10 +51,8 @@ public class LoggerService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-       uploadLogs();
+        uploadLogs();
     }
-
-
 
 
     @Override
@@ -63,7 +62,7 @@ public class LoggerService extends Service {
 
 
     public static boolean isInitialized() {
-        String visitorID = pref.getString("VisitiorID","" );
+        String visitorID = pref.getString("VisitorId","" );
         if (TextUtils.equals(visitorID, ""))
             return false;
         else
@@ -167,7 +166,7 @@ public class LoggerService extends Service {
         } else {
             try {
                 JSONArray j = new JSONArray(oldLogs);
-                j.put(jo);
+                j.put(0,jo);
 
                 editor.putString("LogEntries", j.toString());
                 editor.commit();
@@ -202,8 +201,8 @@ public class LoggerService extends Service {
 
 
     public static String getVisitorId() {
-        String visitorID = pref.getString("VisitorId","" );
-        return visitorID;
+
+        return pref.getString("VisitorId","0" );
 
     }
 
