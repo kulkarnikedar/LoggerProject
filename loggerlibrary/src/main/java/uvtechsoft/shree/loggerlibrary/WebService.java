@@ -14,7 +14,8 @@ import com.android.volley.toolbox.Volley;
 public class WebService {
     Context context;
     // String baseUrl="http://shikuyaa.tecpool.in/service.asmx/";
-    String baseUrl ="http://192.168.0.5/Logger/service.asmx/";
+    //String baseUrl ="http://192.168.0.5/Logger/service.asmx/";
+    String baseUrl ="http://logger.tecpool.in/service.asmx/";
     RequestQueue requestQueue;
     String params[][] = new String[][]{};
     String deviceId = "";
@@ -24,7 +25,6 @@ public class WebService {
         this.context = context;
         requestQueue = Volley.newRequestQueue(context);
         deviceId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-        //deviceId= ""+123;
     }
 
     public void getString(String methodName, final VolleyCallback callback) {
