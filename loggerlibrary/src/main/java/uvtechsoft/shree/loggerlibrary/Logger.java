@@ -45,7 +45,7 @@ class Logger {
     }
 
 
-    public static boolean init(String appkey,long interval) {
+    public static boolean init(String appkey) {
 
 
         WebService ws = new WebService(context);
@@ -78,7 +78,7 @@ class Logger {
 //        return true;
 //    }
 
-    public static boolean reInit(String appkey, String userKey,long interval) {
+    public static boolean reInit(String appkey, String userKey) {
 
 
 
@@ -165,7 +165,7 @@ class Logger {
 
     public Boolean uploadLogs( ){
 
-        int interval = Integer.parseInt(pref.getString("INTERVAL",""));
+        int interval = Integer.parseInt(pref.getString("INTERVAL","1000"));
         mTimer.schedule(timerTask,interval,24*60*60*1000);
 
 

@@ -56,7 +56,7 @@ public class LoggerService extends Service {
     @Override
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
-        new Logger(getBaseContext()).uploadLogs();
+        new Logger(context).uploadLogs();
     }
 
 
@@ -74,7 +74,7 @@ public class LoggerService extends Service {
             return true;
     }
 
-    public static boolean init(String appkey,long interval) {
+    public static boolean init(String appkey) {
 
 
         WebService ws = new WebService(context);
@@ -104,7 +104,7 @@ public class LoggerService extends Service {
 
 
 
-    public static boolean reInit(String appkey, String userKey,long interval) {
+    public static boolean reInit(String appkey, String userKey) {
 
         WebService ws = new WebService(context);
         String param[][] = {{"key",appkey},{"deviceId",deviceID},{"userKey",userKey} };

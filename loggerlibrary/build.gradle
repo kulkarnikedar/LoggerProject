@@ -1,5 +1,11 @@
 apply plugin: 'com.android.library'
 
+def Base_URL = '"' + WEBServiceBaseURL + '"' ?: '"Define BASE URL"';
+
+android.buildTypes.each { type ->
+    type.buildConfigField 'String', 'Base_URL', WEBServiceBaseURL
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion "28.0.3"

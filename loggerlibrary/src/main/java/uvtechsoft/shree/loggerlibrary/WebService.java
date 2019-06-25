@@ -15,7 +15,7 @@ public class WebService {
     Context context;
     // String baseUrl="http://shikuyaa.tecpool.in/service.asmx/";
     //String baseUrl ="http://192.168.0.5/Logger/service.asmx/";
-    String baseUrl ="http://logger.tecpool.in/service.asmx/";
+    String baseUrl =BuildConfig.Base_URL;
     RequestQueue requestQueue;
     String params[][] = new String[][]{};
     String deviceId = "";
